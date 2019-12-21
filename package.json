@@ -1,0 +1,17 @@
+{
+  "name": "holon",
+  "version": "1.0.0",
+  "description": "A system for developing the best cyberneticians in the world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cybernetics"
+  ],
+  "author": "kuberlog",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
