@@ -1,4 +1,4 @@
-var lastSaved
+var goals = Array()
 
 class Goal {
   constructor (name) {
@@ -16,11 +16,12 @@ class Goal {
   }
 
   static save(goal) {
-    lastSaved = goal
+    goal.id = goals.length
+    goals.push(goal)
   }
 
   static load(id) {
-    return lastSaved
+    return goals[id]
   }
 }
 
