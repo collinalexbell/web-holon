@@ -4,7 +4,8 @@
   "description": "A system for developing the best cyberneticians in the world",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon index.js"
   },
   "keywords": [
     "cybernetics"
@@ -15,6 +16,7 @@
     "axios": "^0.19.0",
     "deep-equal": "^2.0.1",
     "express": "^4.17.1",
+    "mongodb": "^3.4.1",
     "mustache": "^3.2.0",
     "mustache-express": "^1.3.0",
     "pug": "^2.0.4",

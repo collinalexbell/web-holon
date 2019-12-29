@@ -21,6 +21,7 @@ class Goal {
   }
 
   static load(id) {
+    console.log(goals)
     return goals[id]
   }
 }

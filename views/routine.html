@@ -1,0 +1,16 @@
+<html ng-app="routineApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="/js/routine.js"></script>
+</head>
+
+<body ng-controller="GoalListController">
+  <a href='/'>home</a>
+  <a href='/routines'>to Routines</a>
+  <h1>{{name}}</h1>
+  <ul>
+    <li ng-repeat="goal in goals"><input type=checkbox checked>{{goal.name}}</input></li>
+  </ul>
+  <button>Add to tasks queue</button>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<a href='/'>home</a>
+<h1>Routines</h1>
+<ul>
+  {{#routines}}
+  <li><a href='routine/{{path}}'>{{path}}</a></li>
+  {{/routines}}
+</ul>

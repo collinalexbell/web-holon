@@ -1,4 +1,13 @@
+const clearRequire = require('clear-require');
 Goal = require('../goal')
+
+
+function reloadModule(moduleName){
+    delete require.cache[require.resolve(moduleName)]
+    console.log('reloadModule: Reloading ' + moduleName + "...");
+    return require(moduleName)
+}
+
 
 test('goal constructor', () => {
   testStart = new Date()
@@ -25,5 +34,14 @@ test('goals can be saved and loaded by ID', () => {
     expect(actualGoal.id).toBe(expectedGoals[i].id)
     expect(actualGoal.name).toBe(expectedGoals[i].name)
   }
+})
 
+test('saves are persistent to context reloads', () => {
+  expectedGoal = new Goal("read")
+  Goal.save(expectedGoal)
+  //Ensure save() actually stores data independent of process memory
+  clearRequire('../goal')
+  Goal = require('../goal')
+  actualGoal = Goal.load(expectedGoal.id)
+  expect(actualGoal.name).toBe(expectedGoal.name)
 })

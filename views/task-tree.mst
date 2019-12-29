@@ -1,0 +1,7 @@
+<h2>Task Queue</h2>
+
+<ul>
+  {{#queue}}
+    <li>{{> task-tree-item}}</li>
+  {{/queue}}
+</ul>
