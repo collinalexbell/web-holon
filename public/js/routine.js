@@ -1,9 +1,12 @@
-var routineApp = angular.module('routineApp', []);
+var $v = new Vue({
+    el: '#routineApp',
+    data: {
+      name: window.location.pathname.replace("/routine/", ""),
+      goals:[]
+    }
+})
 
-routineApp.controller('GoalListController', function GoalListController($scope, $http) {
-  $scope.name = window.location.pathname.replace("/routine/", "")
-  $http.get(window.location.pathname + ".json")
+axios.get(window.location.pathname + ".json")
   .then(function(response) {
-    $scope.goals = response.data.goals
+    $v.goals.push.apply($v.goals, response.data.goals)
   })
-});
