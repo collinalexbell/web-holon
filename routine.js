@@ -27,20 +27,19 @@ function goalsFromFileText(fileText) {
   return goals
 }
 
-module.exports = function(req, res) {
-  console.log(req.params[0])
-  if(req.params[0] != undefined) {
-    if(req.params[0].includes(".json")) {
-      fpath = req.params[0].replace(".json", "")
-      routine = fs.readFileSync("/home/kuberlog/docs/routines/" + fpath).toString()
-      res.set("Content-Type", "text/json")
-      res.send(JSON.stringify({goals: goalsFromFileText(routine)}))
-    } else {
-      html = fs.readFileSync('views/routine.html')
-      res.set('Content-Type', 'text/html')
-      res.send(html)
-    }
-  } else {
+module.exports.api = function(req, res) {
+  fpath = req.params[0].replace(".json", "")
+  routine = fs.readFileSync("/home/kuberlog/docs/routines/" + fpath).toString()
+  res.set("Content-Type", "text/json")
+  res.send(JSON.stringify({goals: goalsFromFileText(routine)}))
+}
+
+module.exports.byPath = function (req, res) {
+  html = fs.readFileSync('views/routine.html')
+  res.set('Content-Type', 'text/html')
+  res.send(html)
+}
+
+module.exports.home = function(req, res) {
     res.render('routines', {routines: routines})
-  }
 }

@@ -22,7 +22,9 @@ app.get(['/good-to-great', '/good-to-great/:stage'], function (req, res) {
 })
 
 app.get('/task-tree', taskTree)
-app.get(['/routines', '/routine/*'], routine)
+app.get('/routine/*.json', routine.api)
+app.get('/routines', routine.home)
+app.get('/routine/*', routine.byPath)
 
 app.engine('mst', mustacheExpress("views"))
 app.set('view engine', 'mst')
