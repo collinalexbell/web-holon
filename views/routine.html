@@ -1,16 +1,21 @@
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/vue/dist/vue.min.js"></script>
+  <script src="/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="/css/routine.css">
 </head>
 
 <body>
-  <div id='routineApp'>
+  <div id='routineApp' v-bind:class="mode">
     <a href='/'>home</a>
     <a href='/routines'>to Routines</a>
     <h1>{{name}}</h1>
     <ul>
-      <li v-for="goal in goals"><input type=checkbox checked>{{goal.name}}</input></li>
+      <li  v-for="goal in goals">
+        <div v-bind:class="{active: goal.isActive, insertMode: goal.insertMode}">
+          <input type=checkbox checked></input>{{goal.name}}<div class='cursor'>&nbsp;</div>
+        </div>
+      </li>
     </ul>
     <button>Add to tasks queue</button>
   </div>
