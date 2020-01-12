@@ -9,7 +9,7 @@ function loadRoutines(dirname, levels) {
       loadRoutines(dirname + dirent.name + '/', levels.concat(dirent.name))
     } else if (dirent.isFile() && dirent.name.charAt(0) != '.') {
       path = levels.concat(dirent.name).join("/")
-      routines.push({path: path})
+      if(!path.includes("obsolete")) routines.push({path: path})
     }
   }
 }

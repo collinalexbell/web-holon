@@ -1,14 +1,31 @@
 class Routine extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {goals: []}
+    this.getRoutineElements()
+  }
+
+  getRoutineElements() {
+    let that = this
+    axios.get(window.location.pathname + "/" + this.props.path + ".json")
+    .then(function (response) {
+      that.setState({goals: response.data.goals})
+    })
+  }
+
+  renderRoutineElements() {
+    return this.state.goals.map((goal, i) => {
+      console.log(goal)
+      return <li key={i}>{goal.name}</li>
+    })
   }
 
   render() {
-    console.log(this.props)
     return(
       <div>
         <a href="#" onClick={this.props.deselectFn}>back to All</a>
         <h1>{this.props.path}</h1>
+        <ul>{this.renderRoutineElements()}</ul>
       </div>
     )
   }
