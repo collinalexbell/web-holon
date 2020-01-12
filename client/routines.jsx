@@ -18,7 +18,7 @@ class RoutineList extends React.Component {
     return(
       this.state.routines.map((routine, i) => {
         return <li key={i}>
-                <a onClick={this.props.selectFn} href="#">
+                <a onClick={this.props.selectFn(routine.path)} href="#">
                   {routine.path}
                 </a>
                </li>
@@ -42,36 +42,49 @@ class Routine extends React.Component {
   }
 
   render() {
-    return <h1>{this.props.path}</h1>
+    console.log(this.props)
+    return(
+      <div>
+        <a href="#" onClick={this.props.deselectFn}>back to All</a>
+        <h1>{this.props.path}</h1>
+      </div>
+    )
   }
 }
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {showList: true}
-    this.hideList = this.hideList.bind(this);
-    this.showList = this.showList.bind(this);
+    this.state = {showList: true, routinePath: ""}
+    this.genSelectRoutine = this.genSelectRoutine.bind(this);
+    this.deselectRoutine = this.deselectRoutine.bind(this);
   }
 
-  hideList() {
-    this.setState({showList: false})
+  genSelectRoutine(path) {
+    let that = this
+    return function() {
+      that.setState({showList: false, routinePath: path})
+    }
   }
 
-  showList() {
-    this.setState({showList: true})
+  deselectRoutine() {
+    this.setState({showList: true, routinePath: ""})
   }
 
   render() {
     if(this.state.showList) {
       return(
         <div>
-        <RoutineList selectFn={this.hideList}/>
+          <RoutineList selectFn={this.genSelectRoutine}/>
         </div>
       )
     }
     else {
-      return(<Routine path=""/>)
+      return(
+        <div>
+          <Routine path={this.state.routinePath} deselectFn={this.deselectRoutine}/>
+        </div>
+      )
     }
   }
 }
