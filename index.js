@@ -24,6 +24,7 @@ app.get(['/good-to-great', '/good-to-great/:stage'], function (req, res) {
 
 app.get('/task-tree', taskTree)
 app.get('/routine/*.json', routine.api)
+app.get('/routines.json', routine.routines)
 app.get('/routines', routine.home)
 app.get('/routine/*', routine.byPath)
 

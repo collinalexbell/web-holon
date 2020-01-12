@@ -1,7 +1,10 @@
-<a href='/'>home</a>
-<h1>Routines</h1>
-<ul>
-  {{#routines}}
-  <li><a href='routine/{{path}}'>{{path}}</a></li>
-  {{/routines}}
-</ul>
+<html>
+<body>
+  <div id='root'>
+  </div>
+  <script src="/axios/dist/axios.min.js"></script>
+  <script type='text/javascript' src='/react/umd/react.development.js'></script>
+  <script type='text/javascript' src='/react-dom/umd/react-dom.development.js'></script>
+  <script type='text/javascript' src='/js/routines.js'></script>
+</body>
+</html>

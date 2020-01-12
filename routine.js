@@ -40,6 +40,10 @@ module.exports.byPath = function (req, res) {
   res.send(html)
 }
 
+module.exports.routines = function(req, res) {
+  res.send(JSON.stringify({routines: routines}))
+}
+
 module.exports.home = function(req, res) {
     res.render('routines', {routines: routines})
 }
