@@ -3,7 +3,7 @@ class RoutineList extends React.Component {
     super(props);
     this.state = {
       routines: [],
-      filterItems: []
+      filterItems: ['obsolete']
     };
     this.getRoutines();
     this.toggleFilterObsolete = this.toggleFilterObsolete.bind(this);
@@ -53,7 +53,8 @@ class RoutineList extends React.Component {
   render() {
     return React.createElement("div", null, React.createElement("h1", null, "Routines"), React.createElement("label", null, "Filter obsolete routines?", React.createElement("input", {
       type: "checkbox",
-      onChange: this.toggleFilterObsolete
+      onChange: this.toggleFilterObsolete,
+      defaultChecked: "true"
     })), React.createElement("ul", null, this.renderRoutines()));
   }
 

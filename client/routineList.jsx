@@ -1,7 +1,7 @@
 class RoutineList extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {routines: [], filterItems: []}
+    this.state = {routines: [], filterItems: ['obsolete']}
     this.getRoutines()
     this.toggleFilterObsolete = this.toggleFilterObsolete.bind(this);
 
@@ -55,7 +55,10 @@ class RoutineList extends React.Component {
       <div>
         <h1>Routines</h1>
         <label>Filter obsolete routines?
-          <input type='checkbox' onChange={this.toggleFilterObsolete}/>
+          <input
+                type='checkbox'
+                onChange={this.toggleFilterObsolete}
+                defaultChecked='true'/>
         </label>
         <ul>{this.renderRoutines()}</ul>
       </div>

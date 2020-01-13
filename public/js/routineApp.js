@@ -28,7 +28,10 @@ class RoutineApp extends React.Component {
 
   render() {
     if (this.state.showList) {
-      return React.createElement("div", null, React.createElement(RoutineList, {
+      return React.createElement("div", null, React.createElement("a", {
+        href: "#home",
+        onClick: this.props.toHome
+      }, "to Home"), React.createElement(RoutineList, {
         selectFn: this.genSelectRoutine
       }));
     } else {

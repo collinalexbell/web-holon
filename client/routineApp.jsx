@@ -21,6 +21,7 @@ class RoutineApp extends React.Component {
     if(this.state.showList) {
       return(
         <div>
+          <a href='#home' onClick={this.props.toHome}>to Home</a>
           <RoutineList selectFn={this.genSelectRoutine}/>
         </div>
       )
