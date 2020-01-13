@@ -1,4 +1,4 @@
-class App extends React.Component {
+class RoutineApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,5 +40,3 @@ class App extends React.Component {
   }
 
 }
-
-ReactDOM.render(React.createElement(App, null), document.getElementById('root'));

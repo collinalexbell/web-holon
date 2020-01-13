@@ -9,7 +9,7 @@ class Routine extends React.Component {
 
   getRoutineElements() {
     let that = this;
-    axios.get(window.location.pathname + "/" + this.props.path + ".json").then(function (response) {
+    axios.get("/routines/" + this.props.path + ".json").then(function (response) {
       that.setState({
         goals: response.data.goals
       });

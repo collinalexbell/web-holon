@@ -27,7 +27,7 @@ class RoutineList extends React.Component {
 
   getRoutines() {
     let that = this;
-    axios.get(window.location.pathname + ".json").then(function (response) {
+    axios.get("/routines.json").then(function (response) {
       let routines = response.data.routines;
       that.setState({
         routines: routines

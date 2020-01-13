@@ -34,8 +34,3 @@ class RoutineApp extends React.Component {
     }
   }
 }
-
-ReactDOM.render(
-  <RoutineApp />,
-  document.getElementById('root')
-);
