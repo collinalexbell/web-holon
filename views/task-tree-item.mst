@@ -1,7 +1,0 @@
-<div id={{id}}>
-  <div class='task-tree-item-name'>{{name}}</div>
-  <div class='task-tree-item-description'>{{description}}</div>
-  <div class='task-tree-item-created'>{{created}}</div>
-  <div class='task-tree-item-parent'><a href='#{{parent}}'>Parent</a></div>
-  <button>Complete</button><button>Delete</button>
-</div>
