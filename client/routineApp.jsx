@@ -1,4 +1,4 @@
-class App extends React.Component {
+class RoutineApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {showList: true, routinePath: ""}
@@ -36,6 +36,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App />,
+  <RoutineApp />,
   document.getElementById('root')
 );
