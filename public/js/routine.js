@@ -29,7 +29,9 @@ class Routine extends React.Component {
     return React.createElement("div", null, React.createElement("a", {
       href: "#",
       onClick: this.props.deselectFn
-    }, "back to All"), React.createElement("h1", null, this.props.path), React.createElement("ul", null, this.renderRoutineElements()));
+    }, "back to All"), React.createElement("h1", null, this.props.path), React.createElement("ul", null, this.renderRoutineElements()), React.createElement("button", {
+      onClick: this.props.addToToDo(this.state.goals)
+    }, "Add to Todo List"));
   }
 
 }

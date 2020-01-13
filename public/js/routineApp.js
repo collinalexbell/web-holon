@@ -37,7 +37,8 @@ class RoutineApp extends React.Component {
     } else {
       return React.createElement("div", null, React.createElement(Routine, {
         path: this.state.routinePath,
-        deselectFn: this.deselectRoutine
+        deselectFn: this.deselectRoutine,
+        addToToDo: this.props.addRoutineToTodo
       }));
     }
   }

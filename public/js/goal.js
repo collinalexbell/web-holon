@@ -4,7 +4,11 @@ class Goal extends React.Component {
   }
 
   render() {
-    return React.createElement("div", null, React.createElement("h2", null, "Goal: ", this.props.name), this.props.description != undefined && this.props.description.length > 0 && React.createElement("h4", null, "Description: ", this.props.description));
+    return React.createElement("div", null, React.createElement("div", {
+      class: "goal-name"
+    }, "Goal: ", this.props.name), this.props.description != undefined && this.props.description.length > 0 && React.createElement("div", {
+      class: "goal-description"
+    }, "Description: ", this.props.description));
   }
 
 }

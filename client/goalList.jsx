@@ -5,14 +5,27 @@ class GoalList extends React.Component {
   }
 
   mapGoals() {
-    return this.state.goals.map((goal, i) => <li key={i}>{goal}</li>)}
+    console.log(this.state.goals)
+    return this.state.goals.map((goal, i) => {
+      return <li key={i}><Goal name={goal.name}/></li>
+    })}
 
   render() {
-    return(
-      <div>
-        <a href="#home" onClick={this.props.toHome}>To Home</a>
-        <ul>{this.mapGoals()}</ul>
-      </div>
-    )
+    let home = <a href="#home" onClick={this.props.toHome}>To Home</a>
+    if(this.state.goals.length > 0)
+      return(
+        <div>
+          {home}
+          <ul>{this.mapGoals()}</ul>
+        </div>
+      )
+    else
+      return(
+        <div>
+          {home}
+          <ul>{this.mapGoals()}</ul>
+          <h4>No Goals todo</h4>
+        </div>
+      )
   }
 }

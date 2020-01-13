@@ -26,6 +26,9 @@ class Routine extends React.Component {
         <a href="#" onClick={this.props.deselectFn}>back to All</a>
         <h1>{this.props.path}</h1>
         <ul>{this.renderRoutineElements()}</ul>
+        <button onClick={this.props.addToToDo(this.state.goals)}>
+          Add to Todo List
+        </button>
       </div>
     )
   }

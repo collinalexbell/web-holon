@@ -5,11 +5,11 @@ class Goal extends React.Component {
   render() {
     return(
       <div>
-        <h2>Goal: {this.props.name}</h2>
+        <div class="goal-name">Goal: {this.props.name}</div>
         {this.props.description != undefined &&
           this.props.description.length > 0 &&
 
-          <h4>Description: {this.props.description}</h4>}
+          <div class='goal-description'>Description: {this.props.description}</div>}
       </div>
     )
   }

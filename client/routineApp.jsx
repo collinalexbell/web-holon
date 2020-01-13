@@ -29,7 +29,10 @@ class RoutineApp extends React.Component {
     else {
       return(
         <div>
-          <Routine path={this.state.routinePath} deselectFn={this.deselectRoutine}/>
+          <Routine
+            path={this.state.routinePath}
+            deselectFn={this.deselectRoutine}
+            addToToDo={this.props.addRoutineToTodo}/>
         </div>
       )
     }

@@ -2,8 +2,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selection: "home"
+      selection: "home",
+      goals: []
     };
+    this.addRoutineToGoals = this.addRoutineToGoals.bind(this);
   }
 
   select(selection) {
@@ -15,22 +17,28 @@ class App extends React.Component {
     };
   }
 
-  render() {
-    let goals = [React.createElement(Goal, {
-      name: "first"
-    }), React.createElement(Goal, {
-      name: "second"
-    })];
+  addRoutineToGoals(goals) {
+    let that = this;
+    return function () {
+      that.setState((state, props) => {
+        state.goals.push.apply(state.goals, goals);
+        return state;
+      });
+      console.log(that.state);
+    };
+  }
 
+  render() {
     switch (this.state.selection) {
       case "routines":
         return React.createElement(RoutineApp, {
-          toHome: this.select("home")
+          toHome: this.select("home"),
+          addRoutineToTodo: this.addRoutineToGoals
         });
 
       case "goals":
         return React.createElement(GoalList, {
-          goals: goals,
+          goals: this.state.goals,
           toHome: this.select("home")
         });
 

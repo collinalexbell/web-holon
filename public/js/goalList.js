@@ -7,16 +7,22 @@ class GoalList extends React.Component {
   }
 
   mapGoals() {
-    return this.state.goals.map((goal, i) => React.createElement("li", {
-      key: i
-    }, goal));
+    console.log(this.state.goals);
+    return this.state.goals.map((goal, i) => {
+      return React.createElement("li", {
+        key: i
+      }, React.createElement(Goal, {
+        name: goal.name
+      }));
+    });
   }
 
   render() {
-    return React.createElement("div", null, React.createElement("a", {
+    let home = React.createElement("a", {
       href: "#home",
       onClick: this.props.toHome
-    }, "To Home"), React.createElement("ul", null, this.mapGoals()));
+    }, "To Home");
+    if (this.state.goals.length > 0) return React.createElement("div", null, home, React.createElement("ul", null, this.mapGoals()));else return React.createElement("div", null, home, React.createElement("ul", null, this.mapGoals()), React.createElement("h4", null, "No Goals todo"));
   }
 
 }
